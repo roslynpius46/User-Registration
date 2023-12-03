@@ -11,9 +11,11 @@ public class UserRegistration {
         String firstName = sc.nextLine();
         System.out.println("Enter a valid last name:");
         String lastName = sc.nextLine();
+        System.out.println("Enter a valid email ID:");
+        String email = sc.nextLine();
 
 
-        User u1=new User(firstName,lastName);
+        User u1=new User(firstName,lastName,email);
 
         // Validate the first name
         if (u1.isValidName(firstName)) {
@@ -29,6 +31,14 @@ public class UserRegistration {
         }
         else {
             System.out.println("Invalid last name. Please make sure it starts with a capital letter and has a minimum length of 3 characters.");
+        }
+
+        // Validate the email ID
+        if (u1.isValidEmailID(email)) {
+            System.out.println("Valid email: " + email);
+        }
+        else {
+            System.out.println("Invalid email.");
         }
 
         sc.close();
