@@ -9,14 +9,26 @@ public class UserRegistration {
         // Prompt user for input
         System.out.println("Enter a valid first name:");
         String firstName = sc.nextLine();
+        System.out.println("Enter a valid last name:");
+        String lastName = sc.nextLine();
 
-        User u1=new User(firstName);
+
+        User u1=new User(firstName,lastName);
 
         // Validate the first name
-        if (u1.isValidFirstName(firstName)) {
+        if (u1.isValidName(firstName)) {
             System.out.println("Valid first name: " + firstName);
-        } else {
+        }
+        else {
             System.out.println("Invalid first name. Please make sure it starts with a capital letter and has a minimum length of 3 characters.");
+        }
+
+        // Validate the last name
+        if (u1.isValidName(lastName)) {
+            System.out.println("Valid last name: " + lastName);
+        }
+        else {
+            System.out.println("Invalid last name. Please make sure it starts with a capital letter and has a minimum length of 3 characters.");
         }
 
         sc.close();
