@@ -71,7 +71,7 @@ public class User {
      */
     public boolean isValidPassword() {
         // Rule 1: min 8 characters
-        return password.length() >= 8 && containsUppercaseLetter(password) && containsNumericDigit(password);
+        return password.length() >= 8 && containsUppercaseLetter(password) && containsNumericDigit(password) && hasExactlyOneSpecialCharacter(password);
     }
 
     /**
@@ -100,5 +100,20 @@ public class User {
             }
         }
         return false;
+    }
+
+    /**
+     * @desc Function to check if the password contains a special character
+     * @param password Input by user
+     * @return True if password has one special character else False
+     */
+    private static boolean hasExactlyOneSpecialCharacter(String password) {
+        int specialCharacterCount = 0;
+        for (char c : password.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                specialCharacterCount++;
+            }
+        }
+        return specialCharacterCount == 1;
     }
 }
