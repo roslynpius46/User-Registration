@@ -71,17 +71,31 @@ public class User {
      */
     public boolean isValidPassword() {
         // Rule 1: min 8 characters
-        return password.length() >= 8 && containsUppercaseLetter(password);
+        return password.length() >= 8 && containsUppercaseLetter(password) && containsNumericDigit(password);
     }
 
     /**
      * @desc Function to check if the password contains at least 1 uppercase letter
      * @param password Input by user
-     * @return True if password has at least uppercase letter else False
+     * @return True if password has at least one uppercase letter else False
      */
     private static boolean containsUppercaseLetter(String password) {
         for (char c : password.toCharArray()) {
             if (Character.isUpperCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @desc Function to check if the password contains at least 1 numeric digit
+     * @param password Input by user
+     * @return True if password has at least one number else False
+     */
+    private static boolean containsNumericDigit(String password) {
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
                 return true;
             }
         }

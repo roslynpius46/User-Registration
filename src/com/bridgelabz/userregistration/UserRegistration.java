@@ -58,7 +58,7 @@ public class UserRegistration {
             System.out.println("Valid Password");
         }
         else {
-            System.out.println("Invalid Password. Please make sure it has a minimum of 8 characters and at least 1 uppercase letter.");
+            System.out.println("Invalid Password. Please make sure it has a minimum of 8 characters, at least 1 uppercase letter, and at least 1 numeric digit.");
         }
 
 
