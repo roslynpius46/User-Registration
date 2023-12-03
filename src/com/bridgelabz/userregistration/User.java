@@ -7,18 +7,21 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String phoneNo;
 
     /**
      * @desc Constructor that initializes user details
      * @param firstName First name of user
      * @param lastName last name of user
      * @param email Email ID of user
+     * @param phoneNo Phone No. of user
      */
-    public User(String firstName,String lastName,String email)
+    public User(String firstName,String lastName,String email,String phoneNo)
     {
         this.firstName=firstName;
         this.lastName=lastName;
         this.email=email;
+        this.phoneNo=phoneNo;
     }
 
     /**
@@ -39,5 +42,15 @@ public class User {
     public boolean isValidEmailID(String email) {
         // Check if the email follows the specified format
         return email.matches("[a-zA-Z]+\\.[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+(\\.[a-zA-Z]+)?");
+    }
+
+    /**
+     * @desc Checking if phone number is valid
+     * @param phoneNo phone number input by user
+     * @return True if valid else False
+     */
+    public boolean isValidPhoneNo(String phoneNo) {
+        // Check if the email follows the specified format
+        return phoneNo.matches("91 \\d{10}");
     }
 }

@@ -13,9 +13,11 @@ public class UserRegistration {
         String lastName = sc.nextLine();
         System.out.println("Enter a valid email ID:");
         String email = sc.nextLine();
+        System.out.println("Enter a valid Phone No.:");
+        String phoneNo= sc.nextLine();
 
 
-        User u1=new User(firstName,lastName,email);
+        User u1=new User(firstName,lastName,email,phoneNo);
 
         // Validate the first name
         if (u1.isValidName(firstName)) {
@@ -39,6 +41,14 @@ public class UserRegistration {
         }
         else {
             System.out.println("Invalid email.");
+        }
+
+        // Validate the phone number
+        if (u1.isValidPhoneNo(phoneNo)) {
+            System.out.println("Valid Phone No.: " + phoneNo);
+        }
+        else {
+            System.out.println("Invalid Phone No.");
         }
 
         sc.close();
