@@ -48,68 +48,59 @@ class UserValidatorTest {
      * @desc : Test case to verify valid user where all entries are valid
      */
     @Test
-    public void happyTestAllValid(){
+    public void happyTestAllValid() throws UserValidation.InvalidPhoneNumberException, UserValidation.InvalidFirstNameException, UserValidation.InvalidPasswordException, UserValidation.InvalidEmailException, UserValidation.InvalidLastNameException {
         UserValidation userValidate=new UserValidation();
         User user = new User("Riya" , "Anil" ,"riya.anil@gmail.com" ,  "91 9988776655" , "Password*1234");
         assertTrue(userValidate.validateUser(user));
     }
 
     /**
-     *
      * @desc : Test case to verify invalid user where first name is invalid
      */
     @Test
-    public void sadTestFirstNameInvalid(){
-        UserValidation userValidate=new UserValidation();
-        User user = new User("riya" , "Anil" ,"riya.anil@gmail.com" ,  "91 9988776655" , "Password*1234");
-        assertFalse(userValidate.validateUser(user));
+    public void sadTestFirstNameInvalid() {
+        UserValidation userValidate = new UserValidation();
+        User user = new User("riya", "Anil", "riya.anil@gmail.com", "91 9988776655", "Password*1234");
+        assertThrows(UserValidation.InvalidFirstNameException.class, () -> userValidate.validateUser(user));
     }
 
     /**
-     *
      * @desc : Test case to verify invalid user where last name is invalid
      */
     @Test
-    public void sadTestLastNameInvalid(){
-        UserValidation userValidate=new UserValidation();
-
-        User user = new User("Riya" , "A" ,"riya.anil@gmail.com" ,  "91 9988776655" , "Password*1234");
-        assertFalse(userValidate.validateUser(user));
+    public void sadTestLastNameInvalid() {
+        UserValidation userValidate = new UserValidation();
+        User user = new User("Riya", "A", "riya.anil@gmail.com", "91 9988776655", "Password*1234");
+        assertThrows(UserValidation.InvalidLastNameException.class, () -> userValidate.validateUser(user));
     }
 
     /**
-     *
      * @desc : Test case to verify invalid user where emailID is invalid
      */
     @Test
-    public void sadTestEmailInvalid(){
-        UserValidation userValidate=new UserValidation();
-
-        User user = new User("Riya" , "Anil" ,"riya.anil.com" ,  "91 9988776655" , "Password*1234");
-        assertFalse(userValidate.validateUser(user));
+    public void sadTestEmailInvalid() {
+        UserValidation userValidate = new UserValidation();
+        User user = new User("Riya", "Anil", "riya.anil.com", "91 9988776655", "Password*1234");
+        assertThrows(UserValidation.InvalidEmailException.class, () -> userValidate.validateUser(user));
     }
 
     /**
-     *
      * @desc : Test case to verify invalid user where Phone Number is invalid
      */
     @Test
-    public void sadTestPhoneNumberInvalid(){
-        UserValidation userValidate=new UserValidation();
-
-        User user = new User("Riya" , "Anil" ,"riya.anil@gmail.com" ,  "9988776655" , "Password*1234");
-        assertFalse(userValidate.validateUser(user));
+    public void sadTestPhoneNumberInvalid() {
+        UserValidation userValidate = new UserValidation();
+        User user = new User("Riya", "Anil", "riya.anil@gmail.com", "9988776655", "Password*1234");
+        assertThrows(UserValidation.InvalidPhoneNumberException.class, () -> userValidate.validateUser(user));
     }
 
     /**
-     *
      * @desc : Test case to verify invalid user where password is invalid
      */
     @Test
-    public void sadTestPasswordInvalid(){
-        UserValidation userValidate=new UserValidation();
-
-        User user = new User("Riya" , "Anil" ,"riya.anil@gmail.com" ,  "91 9988776655" , "password**");
-        assertFalse(userValidate.validateUser(user));
+    public void sadTestPasswordInvalid() {
+        UserValidation userValidate = new UserValidation();
+        User user = new User("Riya", "Anil", "riya.anil@gmail.com", "91 9988776655", "password**");
+        assertThrows(UserValidation.InvalidPasswordException.class, () -> userValidate.validateUser(user));
     }
 }

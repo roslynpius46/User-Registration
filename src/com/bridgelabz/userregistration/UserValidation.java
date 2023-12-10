@@ -96,16 +96,88 @@ public class UserValidation {
     }
 
     /**
-     * @desc function to validate user entries
-     * @param user User object
-     * @return true is user entries are valid else false
+     * Custom exception for invalid first name
      */
-    public boolean validateUser(User user)
-    {
+    public static class InvalidFirstNameException extends Exception {
+        public InvalidFirstNameException(String message) {
+            super(message);
+        }
+    }
 
-        return isValidFirstName(user.getFirstName())&&
-                isValidLastName(user.getLastName())&&
-                isValidEmailID(user.getEmailId())&&
-                isValidPhoneNo(user.getPhoneNo())&&isValidPassword(user.getPassword());
+    /**
+     * Custom exception for invalid last name
+     */
+    public static class InvalidLastNameException extends Exception {
+        public InvalidLastNameException(String message) {
+            super(message);
+        }
+    }
+
+    /**
+     * Custom exception for invalid email
+     */
+    public static class InvalidEmailException extends Exception {
+        public InvalidEmailException(String message) {
+            super(message);
+        }
+    }
+
+    /**
+     * Custom exception for invalid phone number
+     */
+    public static class InvalidPhoneNumberException extends Exception {
+        public InvalidPhoneNumberException(String message) {
+            super(message);
+        }
+    }
+
+    /**
+     * Custom exception for invalid password
+     */
+    public static class InvalidPasswordException extends Exception {
+        public InvalidPasswordException(String message) {
+            super(message);
+        }
+    }
+
+    /**
+     * @desc Function to validate user entries
+     * @param user User object
+     * @throws InvalidFirstNameException if first name is invalid
+     * @throws InvalidLastNameException if last name is invalid
+     * @throws InvalidEmailException if email is invalid
+     * @throws InvalidPhoneNumberException if phone number is invalid
+     * @throws InvalidPasswordException if password is invalid
+     * @return true if valid user entries else false
+     */
+    public boolean validateUser(User user) throws
+            InvalidFirstNameException,
+            InvalidLastNameException,
+            InvalidEmailException,
+            InvalidPhoneNumberException,
+            InvalidPasswordException {
+
+        if (!isValidFirstName(user.getFirstName())) {
+            throw new InvalidFirstNameException("Invalid first name");
+        }
+
+        if (!isValidLastName(user.getLastName())) {
+            throw new InvalidLastNameException("Invalid last name");
+        }
+
+        if (!isValidEmailID(user.getEmailId())) {
+            throw new InvalidEmailException("Invalid email");
+        }
+
+        if (!isValidPhoneNo(user.getPhoneNo())) {
+            throw new InvalidPhoneNumberException("Invalid phone number");
+        }
+
+        if (!isValidPassword(user.getPassword())) {
+            throw new InvalidPasswordException("Invalid password");
+        }
+
+        else
+            return isValidFirstName(user.getFirstName())&& isValidLastName(user.getLastName()) && isValidEmailID(user.getEmailId()) && isValidPhoneNo(user.getPhoneNo())&&isValidPassword(user.getPassword());
     }
 }

@@ -2,8 +2,7 @@ package com.bridgelabz.userregistration;
 import java.util.Scanner;
 
 public class UserRegistration {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws UserValidation.InvalidPhoneNumberException, UserValidation.InvalidFirstNameException, UserValidation.InvalidPasswordException, UserValidation.InvalidEmailException, UserValidation.InvalidLastNameException {
         Scanner sc = new Scanner(System.in);
 
         // Prompt user for input
