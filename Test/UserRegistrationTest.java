@@ -26,7 +26,7 @@ class EmailValidatorTest {
      * @desc Testcase to check if isValidEmailID function returns false for incorrect email IDs
      */
     @Test
-    void testInvalidEmailsTLD() {
+    void testInvalidEmails() {
         UserValidation u1=new UserValidation();
         assertFalse(u1.isValidEmailID("abc"));
         assertFalse(u1.isValidEmailID("abc@.com.my"));
