@@ -3,7 +3,7 @@ import com.bridgelabz.userregistration.UserValidation;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class EmailValidatorTest {
+class UserValidatorTest {
 
     /**
      * @desc Testcase to check if isValidEmailID function returns true for correct email IDs
