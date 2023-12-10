@@ -95,6 +95,11 @@ public class UserValidation {
         return specialCharacterCount == 1;
     }
 
+    /**
+     * @desc function to validate user entries
+     * @param user User object
+     * @return true is user entries are valid else false
+     */
     public boolean validateUser(User user)
     {
 
