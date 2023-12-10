@@ -12,6 +12,20 @@ public class User {
 
     /**
      * @desc Constructor that initializes user details
+     *
+     */
+    public User()
+    {
+        this.firstName="";
+        this.lastName="";
+        this.email="";
+        this.phoneNo="";
+        this.password="";
+
+    }
+
+    /**
+     * @desc Constructor that initializes user details
      * @param firstName First name of user
      * @param lastName last name of user
      * @param email Email ID of user
@@ -51,9 +65,9 @@ public class User {
      * @desc Checking if email ID is valid
      * @return True if valid else False
      */
-    public boolean isValidEmailID() {
+    public boolean isValidEmailID(String email) {
         // Check if the email follows the specified format
-        return email.matches("[a-zA-Z]+\\.[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+(\\.[a-zA-Z]+)?");
+        return email.matches("^[A-Za-z0-9]+[A-Za-z0-9-+]*([.][A-Za-z0-9-]+)*@[A-Za-z0-9-]+([.][a-zA-Z][a-zA-Z]+)([.][a-zA-Z][a-zA-Z]+)?$");
     }
 
     /**

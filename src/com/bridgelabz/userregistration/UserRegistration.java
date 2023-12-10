@@ -38,7 +38,7 @@ public class UserRegistration {
         }
 
         // Validate the email ID
-        if (u1.isValidEmailID()) {
+        if (u1.isValidEmailID(email)) {
             System.out.println("Valid email: " + email);
         }
         else {
