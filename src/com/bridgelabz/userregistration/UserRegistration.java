@@ -20,9 +20,11 @@ public class UserRegistration {
 
 
         User u1=new User(firstName,lastName,email,phoneNo,password);
+        UserValidation userValid=new UserValidation();
+
 
         // Validate the first name
-        if (u1.isValidFirstName()) {
+        if (userValid.isValidFirstName(firstName)) {
             System.out.println("Valid first name: " + firstName);
         }
         else {
@@ -30,7 +32,7 @@ public class UserRegistration {
         }
 
         // Validate the last name
-        if (u1.isValidLastName()) {
+        if (userValid.isValidLastName(lastName)) {
             System.out.println("Valid last name: " + lastName);
         }
         else {
@@ -38,7 +40,7 @@ public class UserRegistration {
         }
 
         // Validate the email ID
-        if (u1.isValidEmailID(email)) {
+        if (userValid.isValidEmailID(email)) {
             System.out.println("Valid email: " + email);
         }
         else {
@@ -46,7 +48,7 @@ public class UserRegistration {
         }
 
         // Validate the phone number
-        if (u1.isValidPhoneNo()) {
+        if (userValid.isValidPhoneNo(phoneNo)) {
             System.out.println("Valid Phone No.: " + phoneNo);
         }
         else {
@@ -54,14 +56,18 @@ public class UserRegistration {
         }
 
         // Validate the password
-        if (u1.isValidPassword()) {
+        if (userValid.isValidPassword(password)) {
             System.out.println("Valid Password");
         }
         else {
             System.out.println("Invalid Password. Please make sure it has a minimum of 8 characters, at least 1 uppercase letter, at least 1 numeric digit, and exactly 1 special character.");
         }
 
-
+        //Check for user entry validity
+        if(userValid.validateUser(u1))
+            System.out.println("Valid User Entry");
+        else
+            System.out.println("Invalid User Entry");
 
         sc.close();
     }

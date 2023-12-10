@@ -12,20 +12,6 @@ public class User {
 
     /**
      * @desc Constructor that initializes user details
-     *
-     */
-    public User()
-    {
-        this.firstName="";
-        this.lastName="";
-        this.email="";
-        this.phoneNo="";
-        this.password="";
-
-    }
-
-    /**
-     * @desc Constructor that initializes user details
      * @param firstName First name of user
      * @param lastName last name of user
      * @param email Email ID of user
@@ -44,90 +30,83 @@ public class User {
     }
 
     /**
-     * @desc Checking if first is valid
-     * @return True if valid else False
+     * @desc  Gets the first name of the user
+     * @return The first name of the user.
      */
-    public boolean isValidFirstName() {
-        // Check if name starts with a capital letter and has a minimum length of 3 characters
-        return firstName.matches("[A-Z][a-zA-Z]{2,}");
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
-     * @desc Checking if last name is valid
-     * @return True if valid else False
+     * @desc  sets the first name of the user
+     * @param firstName first name to set.
      */
-    public boolean isValidLastName() {
-        // Check if name starts with a capital letter and has a minimum length of 3 characters
-        return lastName.matches("[A-Z][a-zA-Z]{2,}");
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     /**
-     * @desc Checking if email ID is valid
-     * @return True if valid else False
+     * @desc  Gets the last name of the user
+     * @return The last name of the user.
      */
-    public boolean isValidEmailID(String email) {
-        // Check if the email follows the specified format
-        return email.matches("^[A-Za-z0-9]+[A-Za-z0-9-+]*([.][A-Za-z0-9-]+)*@[A-Za-z0-9-]+([.][a-zA-Z][a-zA-Z]+)([.][a-zA-Z][a-zA-Z]+)?$");
+    public String getLastName() {
+        return lastName;
     }
 
     /**
-     * @desc Checking if phone number is valid
-     * @return True if valid else False
+     * @desc  sets the last name of the user
+     * @param lastName  last name to set.
      */
-    public boolean isValidPhoneNo() {
-        // Check if the email follows the specified format
-        return phoneNo.matches("91 \\d{10}");
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     /**
-     * @desc Checking if password is valid
-     * @return True if valid else False
+     * @desc  Gets the phone no of the user
+     * @return The phone no of the user.
      */
-    public boolean isValidPassword() {
-        // Rule 1: min 8 characters
-        return password.length() >= 8 && containsUppercaseLetter(password) && containsNumericDigit(password) && hasExactlyOneSpecialCharacter(password);
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
     /**
-     * @desc Function to check if the password contains at least 1 uppercase letter
-     * @param password Input by user
-     * @return True if password has at least one uppercase letter else False
+     * @desc  sets the phone no of the user
+     * @param phoneNo  phone no to set.
      */
-    private static boolean containsUppercaseLetter(String password) {
-        for (char c : password.toCharArray()) {
-            if (Character.isUpperCase(c)) {
-                return true;
-            }
-        }
-        return false;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     /**
-     * @desc Function to check if the password contains at least 1 numeric digit
-     * @param password Input by user
-     * @return True if password has at least one number else False
+     * @desc  Gets the emailID of the user
+     * @return The emailID of the user.
      */
-    private static boolean containsNumericDigit(String password) {
-        for (char c : password.toCharArray()) {
-            if (Character.isDigit(c)) {
-                return true;
-            }
-        }
-        return false;
+    public String getEmailId() {
+        return email;
     }
 
     /**
-     * @desc Function to check if the password contains a special character
-     * @param password Input by user
-     * @return True if password has one special character else False
+     * @desc  sets the emailID of the user
+     * @param email  emailID to set.
      */
-    private static boolean hasExactlyOneSpecialCharacter(String password) {
-        int specialCharacterCount = 0;
-        for (char c : password.toCharArray()) {
-            if (!Character.isLetterOrDigit(c)) {
-                specialCharacterCount++;
-            }
-        }
-        return specialCharacterCount == 1;
+    public void setEmailId(String email) {
+        this.email = email;
     }
+
+    /**
+     * @desc  Gets the password of the user
+     * @return The password of the user.
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @desc  sets the password of the user
+     * @param password  emailID to set.
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }
